@@ -4,8 +4,8 @@
         <div class="list">
             <div class="item list card" ng-repeat="week in weeks">
 
-                <div class="item item-icon-left">
-                    <i class="icon ion-cube assertive"></i>
+                <div class="item item-avatar">
+                    <img src="{{week.avatar}}"/>
 
                     <h2>{{week.title}}</h2>
 
@@ -13,9 +13,9 @@
                 </div>
 
                 <div class="item item-body">
-                    <img class="full-image" src="img/weeks/{{week.image}}" alt="{{week.title}}">
+                    <img class="full-image" src="{{week.image}}" alt="{{week.title}}">
 
-                    <p> {{week.quote}} </p>
+                    <p>{{week.quote}}</p>
 
                     <p>
                         <a href="#" class="subdued">{{week.size}}</a>
