@@ -1,13 +1,29 @@
-<ion-view view-title="Week #{{weekNumber}}">
-    <ion-content padding="true">
-        <h3>Your baby is as big as:</h3>
+<ion-view view-title="Week #{{week.number}}">
 
-        <h1>Something quite small</h1>
+    <ion-content>
+        <div class="list card">
 
-        <div class="weekImage">
-            <img src="http://portfoliotheme.org/enigmatic/wp-content/uploads/sites/9/2012/07/placeholder1.jpg"
-                 alt="image">
+            <div class="item item-icon-left">
+                <i class="icon ion-cube assertive"></i>
+
+                <h2>{{week.title}}</h2>
+
+                <p>week #{{week.number}}</p>
+            </div>
+
+            <div class="item item-body">
+                <img class="full-image" src="img/weeks/{{week.image}}" alt="{{week.title}}">
+
+                <p> {{week.quote}} </p>
+
+                <p>
+                    <a href="#" class="subdued">{{week.size}}</a>
+                    <a href="#" class="subdued">{{week.weight}}</a>
+                </p>
+            </div>
+
         </div>
-        <h4>¿How much wood would a woodchuck chuck if a woodchuck would chuck wood?</h4>
+
     </ion-content>
+
 </ion-view>
