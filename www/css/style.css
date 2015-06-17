@@ -1,1 +1,7 @@
-/* Empty. Add your own CSS if you like */
+.weekImage {
+    text-align: center;
+}
+
+.weekImage img {
+    width: 90%;
+}

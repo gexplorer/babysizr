@@ -1,9 +1,7 @@
-angular.module('babysizr', ['ionic'])
+angular.module('babysizr', ['ionic', 'controllers'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
-            // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-            // for form inputs)
             if (window.cordova && window.cordova.plugins.Keyboard) {
                 cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
             }
@@ -12,3 +10,16 @@ angular.module('babysizr', ['ionic'])
             }
         });
     })
+
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+        $stateProvider
+
+            .state('week', {
+                url: '/week',
+                templateUrl: 'templates/week.html',
+                controller: 'WeeksController'
+            });
+
+        $urlRouterProvider.otherwise('/week');
+    });
