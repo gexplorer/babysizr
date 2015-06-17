@@ -3,7 +3,7 @@ angular.module('services', [])
     .factory('WeeksService', function () {
         var weeks = [];
 
-        for (var n = 0; n < 10; n++) {
+        for (var n = 10; n > 0; n--) {
             weeks.push({
                 number: n,
                 size: faker.address.zipCode() + " mm",
