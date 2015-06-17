@@ -15,9 +15,17 @@ angular.module('services', [])
             });
         }
 
+        function getWeeks() {
+            return weeks;
+        }
+
+        function calculateWeek(date) {
+            var today = new Date();
+            return 16;
+        }
+
         return {
-            getWeeks: function () {
-                return weeks;
-            }
+            getWeeks: getWeeks,
+            calculateWeek: calculateWeek
         }
     });
