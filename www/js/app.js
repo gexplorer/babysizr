@@ -1,4 +1,4 @@
-angular.module('babysizr', ['ionic', 'controllers'])
+angular.module('babysizr', ['ionic', 'controllers', 'directives'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -9,17 +9,4 @@ angular.module('babysizr', ['ionic', 'controllers'])
                 StatusBar.styleDefault();
             }
         });
-    })
-
-    .config(function ($stateProvider, $urlRouterProvider) {
-
-        $stateProvider
-
-            .state('week', {
-                url: '/week',
-                templateUrl: 'templates/week.html',
-                controller: 'WeeksController'
-            });
-
-        $urlRouterProvider.otherwise('/week');
     });

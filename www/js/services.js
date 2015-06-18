@@ -1,6 +1,6 @@
 angular.module('services', [])
 
-    .factory('WeeksService', function () {
+    .factory('CardService', function () {
         var weeks = [];
 
         for (var n = 10; n > 0; n--) {
