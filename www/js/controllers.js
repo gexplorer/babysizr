@@ -2,12 +2,14 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService) {
         var cardTypes = CardService.getWeeks();
+        $scope.bg = faker.internet.color();
 
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
         $scope.cardSwiped = function (index) {
             console.log("- swiped");
             $scope.addCard();
+            $scope.bg = faker.internet.color()
         };
 
         $scope.cardDestroyed = function (index) {
