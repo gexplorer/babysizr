@@ -26,6 +26,17 @@ swipe-card .title {
     color: #444;
 }
 
+swipe-card .title span{
+    display: inline-block;
+    width: 2em;
+    height: 2em;
+    text-align: center;
+    margin-right: 2%;
+    border-radius: 50%;
+    background-color: #AAA;
+    color: white;
+}
+
 swipe-card .image {
     overflow: hidden;
     max-height: 210px;
