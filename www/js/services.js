@@ -11,7 +11,7 @@ angular.module('services', [])
             {number: 7, title: 'A radioactive spider', sizeFrom: 0, sizeTo: 10, weightFrom: 0, weightTo: 1, quote: 'With great power. comes great responsibility.'},
             {number: 8, title: 'The One Ring', sizeFrom: 14, sizeTo: 18, weightFrom: 0, weightTo: 1, quote: 'One ring to rule them all...'},
             {number: 9, title: 'Ghd Matrix pills', sizeFrom: 0, sizeTo: 20, weightFrom: 0, weightTo: 2, quote: 'Which one are you gonna choose?'},
-            {number: 10, title: 'An spinning top', sizeFrom: 30, sizeTo: 40, weightFrom: 0, weightTo: 5, quote: 'You mustn\'t be afraid to dream a little bigger, darling.'},
+            {number: 10, title: 'A spinning top', sizeFrom: 30, sizeTo: 40, weightFrom: 0, weightTo: 5, quote: 'You mustn\'t be afraid to dream a little bigger, darling.'},
             {number: 11, title: 'A Rubik\'s cube', sizeFrom: 40, sizeTo: 50, weightFrom: 6, weightTo: 8, quote: 'All problems can be solved.'},
             {number: 12, title: 'A Tamagotchi', sizeFrom: 0, sizeTo: 60, weightFrom: 8, weightTo: 14, quote: 'Life was a lot easier when the only thing I had to take care of was a tamagotchi.'},
             {number: 13, title: 'A Powerball', sizeFrom: 65, sizeTo: 75, weightFrom: 15, weightTo: 20, quote: 'Your arms won\'t believe your wrists.'},
