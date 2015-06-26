@@ -133,12 +133,16 @@
 
             this.el.style[TRANSITION] = '-webkit-transform ' + duration + 's ease-in-out';
             this.el.style[ionic.CSS.TRANSFORM] = 'translate3d(' + this.x + ',' + (window.innerHeight * direction) + 'px, 0) rotate(' + rotateTo + 'rad)';
-            this.onSwipe && this.onSwipe();
+
+            if(direction < 0) {
+                this.onSwipeUp && this.onSwipeUp();
+            }else{
+                this.onSwipeDown && this.onSwipeDown();
+            }
 
             setTimeout(function () {
                 self.onDestroy && self.onDestroy();
             }, duration * 1000);
-
         },
 
         bindEvents: function () {
@@ -213,7 +217,8 @@
                 require: '^swipeCards',
                 transclude: true,
                 scope: {
-                    onCardSwipe: '&',
+                    onCardSwipeUp: '&',
+                    onCardSwipeDown: '&',
                     onDestroy: '&'
                 },
                 link: function ($scope, $element, $attr, swipeCards) {
@@ -221,9 +226,14 @@
 
                     var swipeableCard = new SwipeableCardView({
                         el: el,
-                        onSwipe: function () {
+                        onSwipeUp: function () {
                             $timeout(function () {
-                                $scope.onCardSwipe();
+                                $scope.onCardSwipeUp();
+                            });
+                        },
+                        onSwipeDown: function () {
+                            $timeout(function () {
+                                $scope.onCardSwipeDown();
                             });
                         },
                         onDestroy: function () {

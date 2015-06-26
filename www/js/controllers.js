@@ -6,8 +6,12 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
         $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
 
-        $scope.cardSwiped = function (index) {
-            console.log("- swiped");
+        $scope.cardSwipedUp = function () {
+            $scope.addCard();
+            $scope.bg = faker.internet.color()
+        };
+
+        $scope.cardSwipedDown = function () {
             $scope.addCard();
             $scope.bg = faker.internet.color()
         };
