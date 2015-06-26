@@ -182,11 +182,8 @@
             var width = this.el.offsetWidth;
             var point = window.innerWidth / 2 + this.rotationDirection * (width / 2)
             var distance = Math.abs(point - e.gesture.touches[0].pageX);
-            console.log(distance);
 
             this.touchDistance = distance * 10;
-
-            console.log('Touch distance', this.touchDistance);//this.touchDistance, width);
         },
 
         _doDrag: function (e) {
