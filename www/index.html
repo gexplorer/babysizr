@@ -28,9 +28,6 @@
     </ion-header-bar>
 
     <swipe-cards>
-        <swipe-card on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()" id="start-card">
-            Swipe down for a new card
-        </swipe-card>
         <swipe-card ng-repeat="card in cards" on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()"
                     on-destroy="cardDestroyed($index)">
             <div>
