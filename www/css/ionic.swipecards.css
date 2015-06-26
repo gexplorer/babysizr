@@ -31,10 +31,19 @@ swipe-card .image {
     max-height: 210px;
 }
 
-swipe-card .footer {
+swipe-card .body {
     height: 40px;
     padding: 5px;
     color: #444;
+}
+
+swipe-card .footer {
+    padding: 5px;
+    color: #666;
+    text-align: right;
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
 }
 
 swipe-card .image img {
