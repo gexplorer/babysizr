@@ -6,7 +6,7 @@ angular.module('services', [])
             {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.', image: faker.image.image()},
             {number: 3, title: 'Innerspace ship', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!', image: faker.image.image()},
             {number: 4, title: 'Ant-man', sizeFrom: 0, sizeTo: 1, weightFrom: 0, weightTo: 1, quote: 'One question... Is it too late to change the name?', image: faker.image.image()},
-            {number: 5, title: '', sizeFrom: 1, sizeTo: 2, weightFrom: 0, weightTo: 1, quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!', image: faker.image.image()},
+            {number: 5, title: '---', sizeFrom: 1, sizeTo: 2, weightFrom: 0, weightTo: 1, quote: '---', image: faker.image.image()},
             {number: 6, title: 'Game boy mario bros', sizeFrom: 3, sizeTo: 4, weightFrom: 0, weightTo: 1, quote: 'Thank you so much for playing my game!', image: faker.image.image()},
             {number: 7, title: 'Spiderman spider', sizeFrom: 0, sizeTo: 10, weightFrom: 0, weightTo: 1, quote: 'With great power. comes great responsibility.', image: faker.image.image()},
             {number: 8, title: 'The one ring', sizeFrom: 14, sizeTo: 18, weightFrom: 0, weightTo: 1, quote: 'One ring to rule them all...', image: faker.image.image()},
