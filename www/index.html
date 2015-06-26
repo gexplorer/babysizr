@@ -35,7 +35,7 @@
                     on-destroy="cardDestroyed($index)">
             <div>
                 <div class="title">
-                    {{::card.title}}
+                    {{card.number}}.{{::card.title}}
                 </div>
                 <div class="image">
                     <img ng-src="{{::card.image}}">
