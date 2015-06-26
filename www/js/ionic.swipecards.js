@@ -134,15 +134,25 @@
             this.el.style[TRANSITION] = '-webkit-transform ' + duration + 's ease-in-out';
             this.el.style[ionic.CSS.TRANSFORM] = 'translate3d(' + this.x + ',' + (window.innerHeight * direction) + 'px, 0) rotate(' + rotateTo + 'rad)';
 
-            if(direction < 0) {
-                this.onSwipeUp && this.onSwipeUp();
-            }else{
-                this.onSwipeDown && this.onSwipeDown();
+            var revert = false;
+
+            if (direction < 0) {
+                revert = !this.onSwipeUp()
+            } else {
+                revert = !this.onSwipeDown()
             }
 
-            setTimeout(function () {
-                self.onDestroy && self.onDestroy();
-            }, duration * 1000);
+            if (revert) {
+                this.el.style[TRANSITION] = '-webkit-transform 0.2s ease-in-out';
+                this.el.style[ionic.CSS.TRANSFORM] = 'translate3d(' + this.x + ',' + (this.startY) + 'px, 0)';
+                setTimeout(function () {
+                    self.el.style[TRANSITION] = 'none';
+                }, 200);
+            } else {
+                setTimeout(function () {
+                    self.onDestroy && self.onDestroy();
+                }, duration * 1000);
+            }
         },
 
         bindEvents: function () {
@@ -209,7 +219,6 @@
     });
 
     angular.module('ionic.contrib.ui.cards', ['ionic'])
-
         .directive('swipeCard', ['$timeout', function ($timeout) {
             return {
                 restrict: 'E',
@@ -218,6 +227,7 @@
                 transclude: true,
                 scope: {
                     onCardSwipeUp: '&',
+                    block: '&',
                     onCardSwipeDown: '&',
                     onDestroy: '&'
                 },
@@ -227,15 +237,12 @@
                     var swipeableCard = new SwipeableCardView({
                         el: el,
                         onSwipeUp: function () {
-                            $timeout(function () {
-                                $scope.onCardSwipeUp();
-                            });
+                            return $scope.onCardSwipeUp();
                         },
                         onSwipeDown: function () {
-                            $timeout(function () {
-                                $scope.onCardSwipeDown();
-                            });
+                            return $scope.onCardSwipeDown();
                         },
+
                         onDestroy: function () {
                             $timeout(function () {
                                 $scope.onDestroy();

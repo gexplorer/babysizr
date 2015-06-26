@@ -8,12 +8,14 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
         $scope.cardSwipedUp = function () {
             $scope.addCard();
-            $scope.bg = faker.internet.color()
+            $scope.bg = faker.internet.color();
+            return true;
         };
 
         $scope.cardSwipedDown = function () {
             $scope.addCard();
-            $scope.bg = faker.internet.color()
+            $scope.bg = faker.internet.color();
+            return true;
         };
 
         $scope.cardDestroyed = function (index) {
