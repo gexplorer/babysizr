@@ -28,20 +28,20 @@
     </ion-header-bar>
 
     <swipe-cards>
-        <swipe-card on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()" id="start-card">
-            Swipe down for a new card
-        </swipe-card>
         <swipe-card ng-repeat="card in cards" on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()"
                     on-destroy="cardDestroyed($index)">
             <div>
                 <div class="title">
-                    {{::card.title}}
+                    {{card.number}}.{{::card.title}}
                 </div>
                 <div class="image">
                     <img ng-src="{{::card.image}}">
                 </div>
-                <div class="footer">
+                <div class="body">
                     <p>{{::card.quote}}</p>
+                </div>
+                <div class="footer">
+                    <span ng-show="card.sizeFrom">{{::card.sizeFrom}}-</span>{{::card.sizeTo}} mm
                 </div>
             </div>
         </swipe-card>

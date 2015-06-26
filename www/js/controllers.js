@@ -1,21 +1,33 @@
 angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService) {
-        var cardTypes = CardService.getWeeks();
         $scope.bg = faker.internet.color();
 
-        $scope.cards = Array.prototype.slice.call(cardTypes, 0, 0);
+        $scope.stack = CardService.getWeeks();
+        $scope.maxCards = $scope.stack.length;
+        $scope.index = $scope.maxCards - 1;
+        $scope.cards = [$scope.stack[$scope.index]];
 
         $scope.cardSwipedUp = function () {
-            $scope.addCard();
-            $scope.bg = faker.internet.color();
-            return true;
+            if ($scope.index > 0) {
+                $scope.bg = faker.internet.color();
+                $scope.index--;
+                $scope.cards.push($scope.stack[$scope.index]);
+                return true;
+            } else {
+                return false;
+            }
         };
 
         $scope.cardSwipedDown = function () {
-            $scope.addCard();
-            $scope.bg = faker.internet.color();
-            return true;
+            if ($scope.index < $scope.maxCards - 1) {
+                $scope.bg = faker.internet.color();
+                $scope.index++;
+                $scope.cards.push($scope.stack[$scope.index]);
+                return true;
+            } else {
+                return false;
+            }
         };
 
         $scope.cardDestroyed = function (index) {
