@@ -95,7 +95,7 @@ swipe-card .image img {
         -webkit-transform: scale(0, 0);
     }
     70% {
-        -webkit-transform: scale(1.2, 1.2);
+        -webkit-transform: scale(1.1, 1.1);
     }
     100% {
         -webkit-transform: scale(1, 1);
