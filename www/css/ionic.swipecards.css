@@ -9,7 +9,6 @@ swipe-card {
     left: 50%;
     top: 40%;
     width: 300px;
-    height: 400px;
     margin-left: -150px;
     margin-top: -150px;
     box-sizing: border-box;
@@ -43,9 +42,20 @@ swipe-card .image {
 }
 
 swipe-card .body {
-    height: 40px;
-    padding: 5px;
-    color: #444;
+    font-size: 1.5em;
+    height: 200px;
+    line-height: 200px;
+    padding: 10px;
+    text-align: center;
+    vertical-align: middle;
+    color: #909090;
+    margin-bottom: 1em;
+}
+
+swipe-card .body span{
+    display: inline-block;
+    vertical-align: middle;
+    line-height: normal;
 }
 
 swipe-card .footer {
