@@ -1,7 +1,7 @@
 angular.module('services', [])
 
     .factory('CardService', function () {
-        var weeks = [
+        var cards = [
             {number: 1, title: 'Midiclorians', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'May the force be with you.'},
             {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.'},
             {number: 3, title: 'The innerspace ship', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!'},
@@ -44,17 +44,17 @@ angular.module('services', [])
             {number: 40, title: 'A Ghostbusters proton gun', sizeFrom: 480, sizeTo: 530, weightFrom: 3200, weightTo: 3600, quote: 'Who you gonna call?'}
         ];
 
-        function getWeeks() {
-            return weeks;
+        function getCards() {
+            return cards;
         }
 
         function calculateWeek(date) {
             var today = new Date();
-            return 16;
+            return 17;
         }
 
         return {
-            getWeeks: getWeeks,
+            getCards: getCards,
             calculateWeek: calculateWeek
         }
     });

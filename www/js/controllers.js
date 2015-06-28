@@ -3,9 +3,9 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService) {
         $scope.bg = faker.internet.color();
 
-        $scope.stack = CardService.getWeeks();
-        $scope.maxCards = $scope.stack.length;
-        $scope.index = $scope.maxCards - 1;
+        $scope.stack = CardService.getCards();
+        $scope.currentWeek = CardService.calculateWeek();
+        $scope.index = $scope.currentWeek - 1;
         $scope.cards = [$scope.stack[$scope.index]];
 
         $scope.cardSwipedUp = function () {
@@ -20,7 +20,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
         };
 
         $scope.cardSwipedDown = function () {
-            if ($scope.index < $scope.maxCards - 1) {
+            if ($scope.index < $scope.currentWeek - 1) {
                 $scope.bg = faker.internet.color();
                 $scope.index++;
                 $scope.cards.push($scope.stack[$scope.index]);
