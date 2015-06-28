@@ -56,12 +56,11 @@ swipe-card .body span {
 }
 
 swipe-card .footer {
-    padding: 5px;
     color: #666;
     text-align: right;
     position: absolute;
-    bottom: 1%;
-    right: 1%;
+    bottom: 1em;
+    right: 1em;
 }
 
 swipe-card .image img {
