@@ -2,7 +2,7 @@ angular.module('services', [])
 
     .factory('CardService', function () {
         var cards = [
-            {number: 1, title: 'Midiclorians', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'black', quote: 'May the force be with you.'},
+            {number: 1, title: 'Midichlorians', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'black', quote: 'May the force be with you.'},
             {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'lightBlue', quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.'},
             {number: 3, title: 'The innerspace ship', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'grey', quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!'},
             {number: 4, title: 'Ant-man', sizeFrom: 0, sizeTo: 1, weightFrom: 0, weightTo: 1, color: 'red', quote: 'One question... Is it too late to change the name?'},
