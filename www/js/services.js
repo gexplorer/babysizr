@@ -17,7 +17,7 @@ angular.module('services', [])
             {number: 13, title: 'A Powerball', sizeFrom: 65, sizeTo: 75, weightFrom: 15, weightTo: 20, quote: 'Your arms won\'t believe your wrists.'},
             {number: 14, title: 'A 3,5 floppy disk', sizeFrom: 80, sizeTo: 90, weightFrom: 0, weightTo: 30, quote: '1.44 MB in your hand! '},
             {number: 15, title: 'A GI Joe figure', sizeFrom: 0, sizeTo: 100, weightFrom: 0, weightTo: 50, quote: 'A Real American Hero!'},
-            {number: 16, title: 'The Hitchhicker\'s Guide to the Galaxy', sizeFrom: 0, sizeTo: 110, weightFrom: 90, weightTo: 100, quote: 'Almost but not quite, entirely unlike tea.'},
+            {number: 16, title: 'The Guide', sizeFrom: 0, sizeTo: 110, weightFrom: 90, weightTo: 100, quote: 'Almost but not quite, entirely unlike tea.'},
             {number: 17, title: 'A CD Rom', sizeFrom: 110, sizeTo: 120, weightFrom: 0, weightTo: 100, quote: '486 floppy disks in one CD.'},
             {number: 18, title: 'A NES controller', sizeFrom: 120, sizeTo: 140, weightFrom: 0, weightTo: 150, quote: 'Now you\'re playing with power.'},
             {number: 19, title: 'Indiana Jone\'s Holy Grail', sizeFrom: 130, sizeTo: 150, weightFrom: 0, weightTo: 200, quote: '"X" never, ever marks the spot.'},
