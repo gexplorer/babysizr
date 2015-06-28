@@ -1,6 +1,6 @@
 angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils'])
 
-    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors) {
+    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading) {
         $scope.stack = CardService.getCards();
         $scope.currentWeek = CardService.calculateWeek();
         $scope.index = $scope.currentWeek - 1;
@@ -28,6 +28,10 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils'])
                 $scope.cards.push(card);
                 return true;
             } else {
+                $ionicLoading.show({
+                    template: "You are still in week " + $scope.currentWeek + ".<br/>Come next week for more!",
+                    duration: 2000
+                });
                 return false;
             }
         };
