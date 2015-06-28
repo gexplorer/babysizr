@@ -24,7 +24,7 @@
 
 <ion-pane ng-controller="CardController" ng-style="{'background-color': bg}">
     <ion-header-bar class="bar-transparent">
-        <h1 class="title">Help Out</h1>
+        <h1 class="title">As big as...</h1>
     </ion-header-bar>
 
     <swipe-cards>
@@ -32,7 +32,7 @@
                     on-destroy="cardDestroyed($index)">
             <div>
                 <div class="title">
-                    {{card.number}}.{{::card.title}}
+                    <span>{{card.number}}</span>{{::card.title}}
                 </div>
                 <div class="image">
                     <img ng-src="img/weeks/{{::card.number}}.png">
