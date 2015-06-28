@@ -1,7 +1,7 @@
-angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
+angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils'])
 
-    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService) {
-        $scope.bg = faker.internet.color();
+    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors) {
+        $scope.bg = Colors.get();
 
         $scope.stack = CardService.getCards();
         $scope.currentWeek = CardService.calculateWeek();
@@ -10,7 +10,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
         $scope.cardSwipedUp = function () {
             if ($scope.index > 0) {
-                $scope.bg = faker.internet.color();
+                $scope.bg = Colors.get();
                 $scope.index--;
                 $scope.cards.push($scope.stack[$scope.index]);
                 return true;
@@ -21,7 +21,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
 
         $scope.cardSwipedDown = function () {
             if ($scope.index < $scope.currentWeek - 1) {
-                $scope.bg = faker.internet.color();
+                $scope.bg = Colors.get();
                 $scope.index++;
                 $scope.cards.push($scope.stack[$scope.index]);
                 return true;
