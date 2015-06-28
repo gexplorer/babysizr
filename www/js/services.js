@@ -6,7 +6,7 @@ angular.module('services', [])
             {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.'},
             {number: 3, title: 'The innerspace ship', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!'},
             {number: 4, title: 'Ant-man', sizeFrom: 0, sizeTo: 1, weightFrom: 0, weightTo: 1, quote: 'One question... Is it too late to change the name?'},
-            {number: 5, title: 'The width of a katana', sizeFrom: 1, sizeTo: 2, weightFrom: 0, weightTo: 1, quote: 'You must have big rats if you need Hattori Hanzo\'s steel.'},
+            {number: 5, title: 'The thickness of a katana', sizeFrom: 1, sizeTo: 2, weightFrom: 0, weightTo: 1, quote: 'You must have big rats if you need Hattori Hanzo\'s steel.'},
             {number: 6, title: 'A pixelized plumber', sizeFrom: 3, sizeTo: 4, weightFrom: 0, weightTo: 1, quote: 'Thank you so much for playing my game!'},
             {number: 7, title: 'A radioactive spider', sizeFrom: 0, sizeTo: 10, weightFrom: 0, weightTo: 1, quote: 'With great power. comes great responsibility.'},
             {number: 8, title: 'The One Ring', sizeFrom: 14, sizeTo: 18, weightFrom: 0, weightTo: 1, quote: 'One ring to rule them all...'},
