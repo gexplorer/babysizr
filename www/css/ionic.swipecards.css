@@ -19,20 +19,18 @@ swipe-card {
 }
 
 swipe-card .title {
-    height: 40px;
-    padding: 5px;
-    line-height: 30px;
-    color: #444;
+    padding: 10px;
+    font-size: 1.2em;
 }
 
-swipe-card .title span{
+swipe-card .title span {
     display: inline-block;
-    width: 2em;
-    height: 2em;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
     text-align: center;
     margin-right: 2%;
     border-radius: 50%;
-    background-color: #AAA;
     color: white;
 }
 
@@ -52,7 +50,7 @@ swipe-card .body {
     margin-bottom: 1em;
 }
 
-swipe-card .body span{
+swipe-card .body span {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;

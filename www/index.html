@@ -31,8 +31,8 @@
         <swipe-card ng-repeat="card in cards" on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()"
                     on-destroy="cardDestroyed($index)">
             <div>
-                <div class="title">
-                    <span>{{card.number}}</span>{{::card.title}}
+                <div class="title" ng-style="{'color': bg}">
+                    <span ng-style="{'background-color': bg}">{{card.number}}</span>{{::card.title}}
                 </div>
                 <div class="image">
                     <img ng-src="img/weeks/{{::card.number}}.png">
