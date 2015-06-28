@@ -14,7 +14,7 @@ angular.module('services', [])
             {number: 10, title: 'A spinning top', sizeFrom: 30, sizeTo: 40, weightFrom: 0, weightTo: 5, color: 'blueGrey', quote: 'You mustn\'t be afraid to dream a little bigger, darling.'},
             {number: 11, title: 'A Rubik\'s cube', sizeFrom: 40, sizeTo: 50, weightFrom: 6, weightTo: 8, color: 'blue', quote: 'All problems can be solved.'},
             {number: 12, title: 'A Tamagotchi', sizeFrom: 0, sizeTo: 60, weightFrom: 8, weightTo: 14, color: 'pink', quote: 'Life was a lot easier when the only thing I had to take care of was a tamagotchi.'},
-            {number: 13, title: 'A Powerball', sizeFrom: 65, sizeTo: 75, weightFrom: 15, weightTo: 20, color: 'grey', quote: 'Your arms won\'t believe your wrists.'},
+            {number: 13, title: 'A Powerball', sizeFrom: 65, sizeTo: 75, weightFrom: 15, weightTo: 20, color: 'lime', quote: 'Your arms won\'t believe your wrists.'},
             {number: 14, title: 'A 3,5 floppy disk', sizeFrom: 80, sizeTo: 90, weightFrom: 0, weightTo: 30, color: 'black', quote: '1.44 MB in your hand! '},
             {number: 15, title: 'A GI Joe figure', sizeFrom: 0, sizeTo: 100, weightFrom: 0, weightTo: 50, color: 'deepOrange', quote: 'A Real American Hero!'},
             {number: 16, title: 'The Guide', sizeFrom: 0, sizeTo: 110, weightFrom: 90, weightTo: 100, color: 'purple', quote: 'Almost but not quite, entirely unlike tea.'},
