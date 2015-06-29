@@ -16,6 +16,7 @@
     <script src="js/controllers.js"></script>
     <script src="js/services.js"></script>
     <script src="js/directives.js"></script>
+    <script src="js/utils.js"></script>
 
     <script src="js/ionic.swipecards.js"></script>
     <link href="css/ionic.swipecards.css" rel="stylesheet">
@@ -24,21 +25,21 @@
 
 <ion-pane ng-controller="CardController" ng-style="{'background-color': bg}">
     <ion-header-bar class="bar-transparent">
-        <h1 class="title">Help Out</h1>
+        <h1 class="title"><img src="img/logo.png" class="button button-clear"/>As big as...</h1>
     </ion-header-bar>
 
     <swipe-cards>
         <swipe-card ng-repeat="card in cards" on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()"
                     on-destroy="cardDestroyed($index)">
             <div>
-                <div class="title">
-                    {{card.number}}.{{::card.title}}
+                <div class="title" ng-style="{'color': bg}">
+                    <span ng-style="{'background-color': bg}">{{card.number}}</span>{{::card.title}}
                 </div>
                 <div class="image">
-                    <img ng-src="{{::card.image}}">
+                    <img ng-src="img/weeks/{{::card.number}}.png">
                 </div>
                 <div class="body">
-                    <p>{{::card.quote}}</p>
+                    <span>{{::card.quote}}</span>
                 </div>
                 <div class="footer">
                     <span ng-show="card.sizeFrom">{{::card.sizeFrom}}-</span>{{::card.sizeTo}} mm

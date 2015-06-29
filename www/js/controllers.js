@@ -1,18 +1,19 @@
-angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
+angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils'])
 
-    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService) {
-        $scope.bg = faker.internet.color();
-
-        $scope.stack = CardService.getWeeks();
-        $scope.maxCards = $scope.stack.length;
-        $scope.index = $scope.maxCards - 1;
+    .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading) {
+        $scope.stack = CardService.getCards();
+        $scope.currentWeek = CardService.calculateWeek();
+        $scope.index = $scope.currentWeek - 1;
         $scope.cards = [$scope.stack[$scope.index]];
+        console.log($scope.cards[0]);
+        $scope.bg = Colors.get($scope.cards[0].color);
 
         $scope.cardSwipedUp = function () {
             if ($scope.index > 0) {
-                $scope.bg = faker.internet.color();
                 $scope.index--;
-                $scope.cards.push($scope.stack[$scope.index]);
+                var card = $scope.stack[$scope.index]
+                $scope.bg = Colors.get(card.color);
+                $scope.cards.push(card);
                 return true;
             } else {
                 return false;
@@ -20,12 +21,17 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services'])
         };
 
         $scope.cardSwipedDown = function () {
-            if ($scope.index < $scope.maxCards - 1) {
-                $scope.bg = faker.internet.color();
+            if ($scope.index < $scope.currentWeek - 1) {
                 $scope.index++;
-                $scope.cards.push($scope.stack[$scope.index]);
+                var card = $scope.stack[$scope.index]
+                $scope.bg = Colors.get(card.color);
+                $scope.cards.push(card);
                 return true;
             } else {
+                $ionicLoading.show({
+                    template: "You are still in week " + $scope.currentWeek + ".<br/>Come next week for more!",
+                    duration: 2000
+                });
                 return false;
             }
         };
