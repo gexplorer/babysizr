@@ -17,13 +17,17 @@ angular.module('services', ['data'])
 
         function getCurrentWeek() {
             if (!dueDate) {
-                return 0;
+                return null;
             }
-            var from = new Date();
+            var today = new Date();
             var millisecondsInWeek = 1000 * 60 * 60 * 24 * 7;
-            var diff = dueDate - from;
-
-            return Math.floor(diff / millisecondsInWeek);
+            var diff = dueDate - today;
+            var diffWeeks = Math.floor(diff / millisecondsInWeek);
+            var weekNumber = 41 - diffWeeks;
+            if (weekNumber < 0) {
+                weekNumber = 0;
+            }
+            return weekNumber;
         }
 
         return {
