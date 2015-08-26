@@ -1,0 +1,18 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-balanced">
+        <h1 class="title">Config</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <div class="item">
+                <p>Introduce the due date for your baby:</p>
+            </div>
+            <div class="item">
+                <ionic-datepicker input-obj="datepicker">
+                    <button class="button button-block button-positive"> {{datepicker.inputDate | date:'dd - MMMM - yyyy'}}
+                    </button>
+                </ionic-datepicker>
+            </div>
+        </div>
+    </ion-content>
+</ion-modal-view>

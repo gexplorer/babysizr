@@ -4,7 +4,7 @@ angular.module('services', ['data'])
         var dueDate = null;
 
         function getDueDate() {
-            return dueDate();
+            return dueDate;
         }
 
         function setDueDate(date) {
