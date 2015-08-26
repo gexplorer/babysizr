@@ -4,15 +4,13 @@
     </ion-header-bar>
     <ion-content>
         <div class="list">
-            <div class="item">
-                <p>Introduce the due date for your baby:</p>
-            </div>
-            <div class="item">
+            <div class="item item-text-wrap">
+                <p>In order to show you your baby's geek size every week, please set you due date</p>
                 <ionic-datepicker input-obj="datepicker">
-                    <button class="button button-block button-positive"> {{datepicker.inputDate | date:'dd - MMMM - yyyy'}}
-                    </button>
+                    <button class="button button-block"> {{datepicker.inputDate | date:'dd - MMMM - yyyy'}}</button>
                 </ionic-datepicker>
             </div>
+            <button class="button button-full button-balanced" ng-click="closeConfig()">Save</button>
         </div>
     </ion-content>
 </ion-modal-view>

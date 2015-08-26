@@ -31,7 +31,7 @@
         <h1 class="title"><img src="img/logo.png" class="button button-clear"/>As big as...</h1>
     </ion-header-bar>
 
-    <swipe-cards>
+    <swipe-cards ng-if="dueDate">
         <swipe-card ng-repeat="card in cards" on-card-swipe-up="cardSwipedUp()" on-card-swipe-down="cardSwipedDown()"
                     on-destroy="cardDestroyed($index)">
             <div>

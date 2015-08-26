@@ -7,35 +7,10 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         $scope.cards = [$scope.stack[$scope.index]];
         $scope.bg = Colors.get($scope.cards[0].color);
 
-        var datePickerCallback = function (date) {
-            if (typeof(date) === 'undefined') {
-                console.log('  - No date selected');
-            } else {
-                console.log("  - Selected date: ", date);
-                CardService.setDueDate(date);
-                console.log("* saved: ", CardService.getDueDate())
-            }
-        };
+        var defaultDate = new Date();
+        defaultDate.setMonth(defaultDate.getMonth() + 9);
 
-        $scope.datepicker = {
-            titleLabel: 'Due date',
-            todayLabel: 'Today',
-            closeLabel: 'Close',
-            setLabel: 'Save',
-            setButtonType: 'button-balanced',
-            todayButtonType: 'button-stable',
-            closeButtonType: 'button-assertive',
-            inputDate: new Date(),
-            mondayFirst: true,
-            templateType: 'popup',
-            modalHeaderColor: 'bar-positive',
-            modalFooterColor: 'bar-positive',
-            from: new Date(2012, 8, 2),
-            to: new Date(2018, 8, 25),
-            callback: function (val) {
-                datePickerCallback(val);
-            }
-        };
+        $scope.dueDate = CardService.getDueDate();
 
         $ionicModal.fromTemplateUrl('/js/config.html', {
             scope: $scope,
@@ -43,14 +18,26 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         }).then(function (modal) {
             $scope.config = modal;
 
-            console.log("* Due date:");
-            if (CardService.getDueDate() == null) {
-                console.log("  - Ask for it");
+            if ($scope.dueDate == null) {
+                $scope.dueDate = defaultDate;
+                CardService.setDueDate(defaultDate);
                 $scope.config.show();
-            } else {
-                console.log("  - " + CardService.getDueDate());
             }
         });
+
+        $scope.datepicker = {
+            titleLabel: 'Due date',
+            inputDate: defaultDate,
+            mondayFirst: true,
+            templateType: 'popup',
+            from: new Date(),
+            callback: function (date) {
+                if (typeof(date) !== 'undefined') {
+                    $scope.dueDate = date;
+                    CardService.setDueDate(date);
+                }
+            }
+        };
 
         $scope.openConfig = function () {
             console.log("    . open");
