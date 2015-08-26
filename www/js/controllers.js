@@ -2,10 +2,9 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils'])
 
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading) {
         $scope.stack = CardService.getCards();
-        $scope.currentWeek = CardService.calculateWeek();
+        $scope.currentWeek = CardService.getCurrentWeek();
         $scope.index = $scope.currentWeek - 1;
         $scope.cards = [$scope.stack[$scope.index]];
-        console.log($scope.cards[0]);
         $scope.bg = Colors.get($scope.cards[0].color);
 
         $scope.cardSwipedUp = function () {
