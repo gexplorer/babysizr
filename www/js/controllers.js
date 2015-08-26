@@ -3,8 +3,11 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading, $ionicModal) {
         $scope.stack = CardService.getCards();
         $scope.currentWeek = CardService.getCurrentWeek();
-        $scope.index = $scope.currentWeek - 1;
-        $scope.cards = [$scope.stack[$scope.index]];
+        $scope.index = 0;
+        if ($scope.currentWeek) {
+            $scope.index = $scope.currentWeek;
+        }
+        $scope.cards = [$scope.stack[0]];
         $scope.bg = Colors.get($scope.cards[0].color);
 
         var defaultDate = new Date();
@@ -35,6 +38,9 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
                 if (typeof(date) !== 'undefined') {
                     $scope.dueDate = date;
                     CardService.setDueDate(date);
+                    $scope.currentWeek = CardService.getCurrentWeek();
+                    $scope.index = $scope.currentWeek;
+                    console.log("* Current index = " + $scope.index);
                 }
             }
         };
