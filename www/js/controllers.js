@@ -72,7 +72,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
                 return true;
             } else {
                 $ionicLoading.show({
-                    template: "You are still in week " + $scope.currentWeek + ".<br/>Come next week for more!",
+                    template: "You are still in week " + ($scope.currentWeek + 1) + ".<br/>Come next week for more!",
                     duration: 2000
                 });
                 return false;
