@@ -2,6 +2,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading, $ionicModal) {
         $scope.stack = CardService.getCards();
+        var dueDate = CardService.getDueDate();
         $scope.currentWeek = CardService.getCurrentWeek();
 
         if ($scope.currentWeek) {

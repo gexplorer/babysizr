@@ -1,13 +1,20 @@
 angular.module('services', ['data'])
 
-    .factory('CardService', function (cards) {
+    .factory('CardService', function (cards, $localStorage) {
         var dueDate = null;
 
         function getDueDate() {
+            if(!dueDate){
+                var tmpDueDate = $localStorage.getObject('dueDate');
+                if(tmpDueDate){
+                    dueDate = new Date(tmpDueDate);
+                }
+            }
             return dueDate;
         }
 
         function setDueDate(date) {
+            $localStorage.putObject('dueDate', date);
             dueDate = date;
         }
 
@@ -36,4 +43,26 @@ angular.module('services', ['data'])
             getCards: getCards,
             getCurrentWeek: getCurrentWeek
         }
-    });
+    })
+
+    .factory('$localStorage', ['$window', function ($window) {
+        return {
+            put: function (key, value) {
+                $window.localStorage[key] = value;
+            },
+            get: function (key, defaultValue) {
+                return $window.localStorage[key] || defaultValue;
+            },
+            putObject: function (key, value) {
+                $window.localStorage[key] = JSON.stringify(value);
+            },
+            getObject: function (key) {
+                return JSON.parse($window.localStorage[key] || '{}');
+            },
+            remove: function (key) {
+                if ($window.localStorage[key]) {
+                    $window.localStorage[key] = null;
+                }
+            }
+        }
+    }]);
