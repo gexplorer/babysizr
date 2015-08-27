@@ -28,7 +28,6 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
 
         $scope.datepicker = {
-            titleLabel: 'Due date',
             inputDate: $scope.dueDate,
             mondayFirst: true,
             templateType: 'popup',
