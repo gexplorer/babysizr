@@ -16,17 +16,24 @@ angular.module('services', ['data'])
             return cards;
         }
 
+        function calculateWeeks(from, to) {
+            var millisecondsInWeek = 1000 * 60 * 60 * 24 * 7;
+            var diff = to - from;
+            var diffWeeks = Math.floor(diff / millisecondsInWeek);
+            return ++diffWeeks;
+        }
+
         function getCurrentWeek() {
             if (!dueDate) {
                 return null;
             }
             var today = new Date();
-            var millisecondsInWeek = 1000 * 60 * 60 * 24 * 7;
-            var diff = dueDate - today;
-            var diffWeeks = Math.floor(diff / millisecondsInWeek);
-            var weekNumber = 41 - diffWeeks;
+            var diffWeeks = calculateWeeks(today, dueDate);
+            var weekNumber = 40 - diffWeeks;
             if (weekNumber < 0) {
                 weekNumber = 0;
+            }else if (weekNumber >= 40){
+                weekNumber = 40;
             }
             return weekNumber;
         }
