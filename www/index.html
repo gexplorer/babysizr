@@ -29,6 +29,9 @@
 <ion-pane ng-controller="CardController" ng-style="{'background-color': bg}">
     <ion-header-bar class="bar-transparent">
         <h1 class="title"><img src="img/logo.png" class="button button-clear"/>babysizr</h1>
+        <button class="button button-clear button-light" ng-click="openConfig()">
+            <i class="icon ion-gear-b"></i>
+        </button>
     </ion-header-bar>
 
     <swipe-cards ng-if="currentWeek >= 0">

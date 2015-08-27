@@ -4,14 +4,15 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         $scope.stack = CardService.getCards();
         $scope.currentWeek = CardService.getCurrentWeek();
 
+        $scope.dueDate = new Date();
+        $scope.dueDate.setMonth($scope.dueDate.getMonth() + 8);
+
         if ($scope.currentWeek) {
-            $scope.index = $scope.currentWeek;
+            $scope.index = $scope.currentWeek - 1;
             $scope.cards = [$scope.stack[$scope.index]];
             $scope.bg = Colors.get($scope.cards[0].color);
+            $scope.dueDate = CardService.getDueDate();
         }
-
-        var defaultDate = new Date();
-        defaultDate.setMonth(defaultDate.getMonth() + 8);
 
         $ionicModal.fromTemplateUrl('/js/config.html', {
             scope: $scope,
@@ -20,7 +21,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
             $scope.config = modal;
 
             if (CardService.getDueDate() == null) {
-                CardService.setDueDate(defaultDate);
+                CardService.setDueDate($scope.dueDate);
                 $scope.config.show();
             }
         });
@@ -28,13 +29,14 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
         $scope.datepicker = {
             titleLabel: 'Due date',
-            inputDate: defaultDate,
+            inputDate: $scope.dueDate,
             mondayFirst: true,
             templateType: 'popup',
             from: new Date(),
             callback: function (date) {
                 if (typeof(date) !== 'undefined') {
                     CardService.setDueDate(date);
+                    $scope.datepicker.inputDate = date;
                 }
             }
         };
@@ -45,7 +47,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
         $scope.closeConfig = function () {
             $scope.currentWeek = CardService.getCurrentWeek();
-            $scope.index = $scope.currentWeek;
+            $scope.index = $scope.currentWeek - 1;
             $scope.cards = [$scope.stack[$scope.index]];
             $scope.bg = Colors.get($scope.cards[0].color);
             $scope.config.hide();
