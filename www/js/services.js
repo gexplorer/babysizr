@@ -1,20 +1,14 @@
 angular.module('services', ['data'])
 
     .factory('CardService', function (cards, $localStorage) {
-        var dueDate = null;
+        var dueDate = $localStorage.getDate('dueDate');
 
         function getDueDate() {
-            if(!dueDate){
-                var tmpDueDate = $localStorage.getObject('dueDate');
-                if(tmpDueDate){
-                    dueDate = new Date(tmpDueDate);
-                }
-            }
             return dueDate;
         }
 
         function setDueDate(date) {
-            $localStorage.putObject('dueDate', date);
+            $localStorage.putDate('dueDate', date);
             dueDate = date;
         }
 
@@ -58,6 +52,17 @@ angular.module('services', ['data'])
             },
             getObject: function (key) {
                 return JSON.parse($window.localStorage[key] || '{}');
+            },
+            putDate: function (key, value) {
+                $window.localStorage[key] = value;
+            },
+            getDate: function (key) {
+                var tmpDate = $window.localStorage[key];
+                if(tmpDate){
+                    return new Date(tmpDate);
+                }else{
+                    return null;
+                }
             },
             remove: function (key) {
                 if ($window.localStorage[key]) {
