@@ -14,7 +14,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
             $scope.dueDate = CardService.getDueDate();
         }
 
-        $ionicModal.fromTemplateUrl('/js/config.html', {
+        $ionicModal.fromTemplateUrl('config.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {
