@@ -1,6 +1,6 @@
 {
   "name": "babysizr",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "How big is your baby during pregnancy... geek edition!",
   "dependencies": {
     "gulp": "^3.5.6",
