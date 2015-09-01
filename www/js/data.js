@@ -24,7 +24,7 @@ angular.module('data', [])
         {number: 21, title: 'A T-rex tooth', sizeFrom: 160, sizeTo: 250, weightFrom: 0, weightTo: 300, color: 'red', quote: 'That doesn\'t look very scary. More like a six-foot turkey.'},
         {number: 22, title: 'Wolverine\'s claws', sizeFrom: 250, sizeTo: 270, weightFrom: 0, weightTo: 350, color: 'black', quote: '-Put the knives down!   -I can\'t.'},
         {number: 23, title: 'Harry Potter\'s wand', sizeFrom: 270, sizeTo: 290, weightFrom: 455, weightTo: 490, color: 'lightBlue', quote: 'Avada Kedavra!'},
-        {number: 24, title: 'Buzz Lightyear', sizeFrom: 280, sizeTo: 300, weightFrom: 500, weightTo: 550, color: 'green', quote: 'To infinity... and beyond!'},
+        {number: 24, title: 'Buzz Lightyear', sizeFrom: 280, sizeTo: 300, weightFrom: 500, weightTo: 550, color: 'purple', quote: 'To infinity... and beyond!'},
         {number: 25, title: 'A ZX Spectrum+', sizeFrom: 300, sizeTo: 330, weightFrom: 600, weightTo: 700, color: 'grey', quote: 'Old school fun now in all 8 colors.'},
         {number: 26, title: 'An Oscar statue', sizeFrom: 310, sizeTo: 340, weightFrom: 0, weightTo: 800, color: 'amber', quote: 'And the Oscar goes to...'},
         {number: 27, title: 'A Cassete deck', sizeFrom: 340, sizeTo: 360, weightFrom: 900, weightTo: 1000, color: 'grey', quote: 'The last time the word "rewind" made sense.'},
