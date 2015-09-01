@@ -2,7 +2,7 @@ angular.module('data', [])
 
     .value('cards', [
         {number: 1, title: 'Midichlorians', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'grey', quote: 'May the force be with you.'},
-        {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'lightBlue', quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.'},
+        {number: 2, title: 'Nanobots', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'blue', quote: 'Sure, at some level scientists know nanobots will destroy mankind. They just can\'t resist seeing how it happens.'},
         {number: 3, title: 'The innerspace ship', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'grey', quote: 'I\'m right here, INSIDE you INSIDE YOUR BODY!'},
         {number: 4, title: 'Ant-man', sizeFrom: 0, sizeTo: 1, weightFrom: 0, weightTo: 1, color: 'red', quote: 'One question... Is it too late to change the name?'},
         {number: 5, title: 'The thickness of a katana', sizeFrom: 1, sizeTo: 2, weightFrom: 0, weightTo: 1, color: 'indigo', quote: 'You must have big rats if you need Hattori Hanzo\'s steel.'},
@@ -34,11 +34,11 @@ angular.module('data', [])
         {number: 31, title: 'A Cluedo board', sizeFrom: 0, sizeTo: 400, weightFrom: 1400, weightTo: 1500, color: 'brown', quote: 'Miss Scarlett with the Knife in the Library.'},
         {number: 32, title: 'Pikachu', sizeFrom: 400, sizeTo: 420, weightFrom: 1700, weightTo: 1800, color: 'red', quote: 'Gotta catch \'em all!'},
         {number: 33, title: 'Punxsutawney Phil Sowerby', sizeFrom: 410, sizeTo: 430, weightFrom: 0, weightTo: 2000, color: 'lightBlue', quote: 'What would you do if you were stuck in one place and every day was exactly the same, and nothing that you did mattered?'},
-        {number: 34, title: 'Mjolnir, Thor\'s hammer', sizeFrom: 430, sizeTo: 450, weightFrom: 2100, weightTo: 2200, color: 'red', quote: 'Whosoever holds this hammer, if he be worthy, shall possess the power of Thor!'},
+        {number: 34, title: 'Mjolnir, Thor\'s hammer', sizeFrom: 430, sizeTo: 450, weightFrom: 2100, weightTo: 2200, color: 'orange', quote: 'Whosoever holds this hammer, if he be worthy, shall possess the power of Thor!'},
         {number: 35, title: 'A T-800 arm', sizeFrom: 440, sizeTo: 460, weightFrom: 0, weightTo: 2500, color: 'indigo', quote: 'Hasta la vista, baby.'},
         {number: 36, title: 'V\'s hat', sizeFrom: 450, sizeTo: 470, weightFrom: 0, weightTo: 2700, color: 'yellow', quote: 'Remember, remember, the Fifth of November...'},
         {number: 37, title: 'A Flux capacitor', sizeFrom: 460, sizeTo: 480, weightFrom: 0, weightTo: 3000, color: 'red', quote: 'if you\'re gonna build a time machine into a car, why not do it with some style?'},
         {number: 38, title: 'A Baby dragon', sizeFrom: 470, sizeTo: 490, weightFrom: 0, weightTo: 3100, color: 'amber', quote: 'Dracarys!'},
         {number: 39, title: 'A Rubber chicken with a pulley', sizeFrom: 0, sizeTo: 500, weightFrom: 0, weightTo: 3200, color: 'blue', quote: 'Hmm, a rubber chicken with a pulley in the middle. What possible use could that have?'},
-        {number: 40, title: 'A Ghostbusters proton gun', sizeFrom: 480, sizeTo: 530, weightFrom: 3200, weightTo: 3600, color: 'black', quote: 'Who you gonna call?'}
+        {number: 40, title: 'A Ghostbusters proton gun', sizeFrom: 480, sizeTo: 530, weightFrom: 3200, weightTo: 3600, color: 'red', quote: 'Who you gonna call?'}
     ]);
