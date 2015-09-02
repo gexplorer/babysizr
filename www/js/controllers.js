@@ -65,15 +65,15 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         };
 
         $scope.cardSwipedDown = function () {
-            if ($scope.index < $scope.currentWeek) {
+            if ($scope.index < $scope.currentWeek - 1) {
                 $scope.index++;
-                var card = $scope.stack[$scope.index]
+                var card = $scope.stack[$scope.index];
                 $scope.bg = Colors.get(card.color);
                 $scope.cards.push(card);
                 return true;
             } else {
                 $ionicLoading.show({
-                    template: "You are still in week " + ($scope.currentWeek + 1) + ".<br/>Come next week for more!",
+                    template: "You are still in week " + $scope.currentWeek + ".<br/>Come next week for more!",
                     duration: 2000
                 });
                 return false;
