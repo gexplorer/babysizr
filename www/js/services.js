@@ -1,15 +1,15 @@
 angular.module('services', ['data'])
 
     .factory('CardService', function (cards, $localStorage) {
-        var dueDate = $localStorage.getDate('dueDate');
 
         function getDueDate() {
-            return dueDate;
+            return $localStorage.getDate('dueDate');
         }
 
         function setDueDate(date) {
-            $localStorage.putDate('dueDate', date);
-            dueDate = date;
+            if(date) {
+                $localStorage.putDate('dueDate', date);
+            }
         }
 
         function getCards() {
