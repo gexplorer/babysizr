@@ -96,16 +96,5 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
             $scope.cards.splice(index, 1);
         };
 
-        $scope.addCard = function () {
-            var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-            newCard.id = Math.random();
-            $scope.cards.push(angular.extend({}, newCard));
-        };
-
-        $scope.goAway = function () {
-            var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
-            card.swipe();
-        };
-
         initialize();
     });
