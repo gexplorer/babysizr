@@ -13,6 +13,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
         var storedDate = CardService.getDueDate();
         if (storedDate) {
+            $scope.firstCard = 0;
             $scope.dueDate = storedDate;
             $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
             $scope.index = $scope.currentWeek - 1;
@@ -78,6 +79,12 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         };
 
         $scope.cardSwipedDown = function () {
+
+            if($scope.firstCard < 0){
+                $scope.firstCard = 0;
+                $scope.openConfig();
+            }
+
             if ($scope.index < $scope.currentWeek - 1) {
                 $scope.index++;
                 var card = $scope.stack[$scope.index];
