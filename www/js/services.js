@@ -2,6 +2,8 @@ angular.module('services', ['data'])
 
     .factory('CardService', function (cards, $localStorage) {
 
+        cards[-1] = {number: 0, title: 'Welcome!', sizeFrom: 0, sizeTo: 0, weightFrom: 0, weightTo: 0, color: 'teal', quote: 'Swipe up/down to navigate between cards.'};
+
         function getDueDate() {
             return $localStorage.getDate('dueDate');
         }

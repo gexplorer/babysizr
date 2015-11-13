@@ -9,36 +9,38 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
         $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
         $scope.index = $scope.currentWeek - 1;
+        $scope.firstCard = -1;
 
-        function initialize() {
-            var storedDate = CardService.getDueDate();
-            if (storedDate) {
-                $scope.dueDate = storedDate;
-                $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
-                $scope.index = $scope.currentWeek - 1;
-                $scope.cards = [$scope.stack[$scope.index]];
-                $scope.bg = Colors.get($scope.cards[0].color);
-            } else {
-                CardService.setDueDate($scope.dueDate);
-                $scope.openConfig();
-            }
+        var storedDate = CardService.getDueDate();
+        if (storedDate) {
+            $scope.firstCard = 0;
+            $scope.dueDate = storedDate;
+            $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
+            $scope.index = $scope.currentWeek - 1;
+        } else {
+            CardService.setDueDate($scope.dueDate);
+            $scope.index = $scope.firstCard;
         }
 
-        $scope.datepicker = {
-            inputDate: $scope.dueDate,
-            mondayFirst: true,
-            templateType: 'popup',
-            from: new Date(),
-            to: $scope.lastDate,
-            callback: function (date) {
-                if (typeof(date) !== 'undefined') {
-                    $scope.dueDate = date;
-                    $scope.datepicker.inputDate = date;
-                }
-            }
-        };
+        $scope.cards = [$scope.stack[$scope.index]];
+        $scope.bg = Colors.get($scope.cards[0].color);
 
         $scope.openConfig = function () {
+            if (!$scope.datepicker) {
+                $scope.datepicker = {
+                    inputDate: $scope.dueDate,
+                    mondayFirst: true,
+                    templateType: 'popup',
+                    from: new Date(),
+                    to: $scope.lastDate,
+                    callback: function (date) {
+                        if (typeof(date) !== 'undefined') {
+                            $scope.dueDate = date;
+                            $scope.datepicker.inputDate = date;
+                        }
+                    }
+                }
+            }
             $scope.datepicker.inputDate = $scope.dueDate;
 
             if (!$scope.config) {
@@ -65,7 +67,7 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         };
 
         $scope.cardSwipedUp = function () {
-            if ($scope.index > 0) {
+            if ($scope.index > $scope.firstCard) {
                 $scope.index--;
                 var card = $scope.stack[$scope.index];
                 $scope.bg = Colors.get(card.color);
@@ -77,6 +79,12 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
         };
 
         $scope.cardSwipedDown = function () {
+
+            if($scope.firstCard < 0){
+                $scope.firstCard = 0;
+                $scope.openConfig();
+            }
+
             if ($scope.index < $scope.currentWeek - 1) {
                 $scope.index++;
                 var card = $scope.stack[$scope.index];
@@ -100,5 +108,4 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
             $scope.cards.splice(index, 1);
         };
 
-        initialize();
     });
