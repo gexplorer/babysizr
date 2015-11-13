@@ -3,14 +3,20 @@
         <h1 class="title"><i class="icon ion-calendar"></i> Due Date</h1>
     </ion-header-bar>
     <ion-content>
-        <div class="list">
-            <div class="item item-text-wrap">
-                <p>In order to show you your baby's geek size every week, please set you due date:</p>
+        <div class="card">
+            <div class="item item-divider item-balanced">
+                Keep calm, the baby is coming
+            </div>
+            <div class="item item-body">
+                <p>Great news the baby is on her way! Isn't it exciting? Just let me know the due date and I hope you'll enjoy the weekly updates.</p>
                 <ionic-datepicker input-obj="datepicker">
                     <button class="button button-block"> {{datepicker.inputDate | date:'dd - MMMM - yyyy'}}</button>
                 </ionic-datepicker>
             </div>
-            <button class="button button-full button-balanced" ng-click="closeConfig()">Save</button>
+            <a class="item item-icon-left balanced" href="#" ng-click="closeConfig()">
+                <i class="icon ion-checkmark"></i>
+                Got it!
+            </a>
         </div>
     </ion-content>
 </ion-modal-view>
