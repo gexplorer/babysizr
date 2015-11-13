@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="org.gexplorer.babysizr" version="1.0.6" xmlns="http://www.w3.org/ns/widgets">
+<widget id="org.gexplorer.babysizr" version="1.0.7" xmlns="http://www.w3.org/ns/widgets">
     <name>babysizr</name>
     <description>
-        How big is your baby during pregnancy... geek edition!
+        Size your baby the geeky way
     </description>
-    <author email="gexplorer8@gmail.com" href="http://babysizr.com/">
+    <author email="gexplorer8@gmail.com" href="http://babysizr.gexplorer.org/">
         Eder Elorriaga
     </author>
     <content src="index.html"/>
