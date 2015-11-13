@@ -1,41 +1,31 @@
 angular.module('services', ['data'])
 
     .factory('CardService', function (cards, $localStorage) {
-        var dueDate = $localStorage.getDate('dueDate');
 
         function getDueDate() {
-            return dueDate;
+            return $localStorage.getDate('dueDate');
         }
 
         function setDueDate(date) {
-            $localStorage.putDate('dueDate', date);
-            dueDate = date;
+            if(date) {
+                $localStorage.putDate('dueDate', date);
+            }
         }
 
         function getCards() {
             return cards;
         }
 
-        function calculateWeeks(from, to) {
-            var millisecondsInWeek = 1000 * 60 * 60 * 24 * 7;
-            var diff = to - from;
-            var diffWeeks = Math.floor(diff / millisecondsInWeek);
-            return ++diffWeeks;
-        }
-
-        function getCurrentWeek() {
-            if (!dueDate) {
-                return null;
-            }
+        function getCurrentWeek(dueDate) {
             var today = new Date();
-            var diffWeeks = calculateWeeks(today, dueDate);
-            var weekNumber = 40 - diffWeeks;
-            if (weekNumber < 0) {
-                weekNumber = 0;
-            }else if (weekNumber >= 40){
-                weekNumber = 40;
+            var tmpDate = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 7);
+
+            var currentWeek = 40;
+            while (tmpDate <= dueDate && currentWeek > 1) {
+                tmpDate.setDate(tmpDate.getDate() + 7);
+                currentWeek--;
             }
-            return weekNumber;
+            return currentWeek;
         }
 
         return {
@@ -65,9 +55,9 @@ angular.module('services', ['data'])
             },
             getDate: function (key) {
                 var tmpDate = $window.localStorage[key];
-                if(tmpDate){
+                if (tmpDate) {
                     return new Date(tmpDate);
-                }else{
+                } else {
                     return null;
                 }
             },

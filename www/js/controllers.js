@@ -2,50 +2,62 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
 
     .controller('CardController', function ($scope, $ionicSwipeCardDelegate, CardService, Colors, $ionicLoading, $ionicModal) {
         $scope.stack = CardService.getCards();
-        $scope.currentWeek = CardService.getCurrentWeek();
 
         $scope.dueDate = new Date();
-        $scope.dueDate.setMonth($scope.dueDate.getMonth() + 8);
+        $scope.dueDate.setMonth($scope.dueDate.getMonth() + 9);
+        $scope.lastDate = new Date($scope.dueDate.getTime());
 
-        if ($scope.currentWeek) {
-            $scope.index = $scope.currentWeek - 1;
-            $scope.cards = [$scope.stack[$scope.index]];
-            $scope.bg = Colors.get($scope.cards[0].color);
-            $scope.dueDate = CardService.getDueDate();
-        }
+        $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
+        $scope.index = $scope.currentWeek - 1;
 
-        $ionicModal.fromTemplateUrl('config.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function (modal) {
-            $scope.config = modal;
-
-            if (CardService.getDueDate() == null) {
+        function initialize() {
+            var storedDate = CardService.getDueDate();
+            if (storedDate) {
+                $scope.dueDate = storedDate;
+                $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
+                $scope.index = $scope.currentWeek - 1;
+                $scope.cards = [$scope.stack[$scope.index]];
+                $scope.bg = Colors.get($scope.cards[0].color);
+            } else {
                 CardService.setDueDate($scope.dueDate);
-                $scope.config.show();
+                $scope.openConfig();
             }
-        });
-
+        }
 
         $scope.datepicker = {
             inputDate: $scope.dueDate,
             mondayFirst: true,
             templateType: 'popup',
             from: new Date(),
+            to: $scope.lastDate,
             callback: function (date) {
                 if (typeof(date) !== 'undefined') {
-                    CardService.setDueDate(date);
+                    $scope.dueDate = date;
                     $scope.datepicker.inputDate = date;
                 }
             }
         };
 
         $scope.openConfig = function () {
-            $scope.config.show();
+            $scope.datepicker.inputDate = $scope.dueDate;
+
+            if (!$scope.config) {
+                $ionicModal.fromTemplateUrl('config.html', {
+                    scope: $scope,
+                    animation: 'slide-in-up'
+                }).then(function (modal) {
+                    $scope.config = modal;
+                    $scope.config.show();
+                });
+            } else {
+                $scope.config.show();
+            }
+
         };
 
         $scope.closeConfig = function () {
-            $scope.currentWeek = CardService.getCurrentWeek();
+            CardService.setDueDate($scope.dueDate);
+            $scope.currentWeek = CardService.getCurrentWeek($scope.dueDate);
             $scope.index = $scope.currentWeek - 1;
             $scope.cards = [$scope.stack[$scope.index]];
             $scope.bg = Colors.get($scope.cards[0].color);
@@ -84,14 +96,5 @@ angular.module('controllers', ['ionic.contrib.ui.cards', 'services', 'utils', 'i
             $scope.cards.splice(index, 1);
         };
 
-        $scope.addCard = function () {
-            var newCard = cardTypes[Math.floor(Math.random() * cardTypes.length)];
-            newCard.id = Math.random();
-            $scope.cards.push(angular.extend({}, newCard));
-        };
-
-        $scope.goAway = function () {
-            var card = $ionicSwipeCardDelegate.getSwipeableCard($scope);
-            card.swipe();
-        };
+        initialize();
     });
