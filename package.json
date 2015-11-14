@@ -1,6 +1,6 @@
 {
   "name": "babysizr",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Size your baby the geeky way",
   "dependencies": {
     "gulp": "^3.5.6",
