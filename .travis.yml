@@ -8,5 +8,7 @@ install:
   - npm install -g cordova
   - npm install -g ionic
   - bower install
-before_script: gulp tests
+before_script:
+  - gulp tests
+  - ionic restore
 script: ionic build android
