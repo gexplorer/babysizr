@@ -1,5 +1,6 @@
 language: objective-c
 before_install:
+  - brew install nvm
   - nvm install 0.12
 install:
   - npm install
