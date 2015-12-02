@@ -10,5 +10,5 @@ install:
   - bower install
 before_script:
   - gulp tests
-  - ionic restore
+  - ionic state restore
 script: ionic build android
