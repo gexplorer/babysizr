@@ -1,11 +1,9 @@
 language: objective-c
 xcode_sdk: iphoneos8.1
-cache:
-  directories:
-  - $HOME/.nvm
 before_install:
   - curl "https://nodejs.org/dist/latest-v4.x/node-v4.2.2.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 install:
+  - npm install node-sass
   - npm install
   - npm install -g gulp
   - npm install -g bower
