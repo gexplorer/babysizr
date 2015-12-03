@@ -20,3 +20,5 @@ before_script:
   - gulp tests
   - ionic state restore
 script: ionic build ios
+after_script:
+  - find $HOME/build/gexplorer/babysizr/platforms
