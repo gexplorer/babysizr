@@ -4,10 +4,7 @@ cache:
   directories:
   - $HOME/.nvm
 before_install:
-  - brew install nvm
-  - source $(brew --prefix nvm)/nvm.sh
-  - export NVM_DIR=~/.nvm
-  - nvm install 4.2.2
+  - curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest-v4.x/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
 install:
   - npm install
   - npm install -g gulp
