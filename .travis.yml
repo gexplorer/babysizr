@@ -1,5 +1,8 @@
 language: objective-c
 xcode_sdk: iphoneos8.1
+cache:
+  directories:
+  - $HOME/.nvm
 before_install:
   - brew install nvm
   - source $(brew --prefix nvm)/nvm.sh
@@ -11,6 +14,7 @@ install:
   - npm install -g bower
   - npm install -g cordova
   - npm install -g ionic
+  - npm install -g ios-deploy
   - bower install
 before_script:
   - gulp tests
