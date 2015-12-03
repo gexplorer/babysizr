@@ -10,6 +10,7 @@ install:
   - npm install -g cordova
   - npm install -g ionic
   - npm install -g ios-deploy
+  - npm install -g ios-sim
   - bower install
 before_script:
   - gulp tests
