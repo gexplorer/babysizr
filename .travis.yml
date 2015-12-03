@@ -1,9 +1,7 @@
 language: objective-c
 before_install:
-  - brew install nvm
-  - source $(brew --prefix nvm)/nvm.sh
-  - export NVM_DIR=~/.nvm
-  - nvm install 0.12
+  - brew update
+  - brew upgrade node
 install:
   - npm install
   - npm install -g gulp
