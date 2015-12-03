@@ -1,4 +1,5 @@
 language: objective-c
+xcode_sdk: iphoneos8.1
 before_install:
   - brew install nvm
   - source $(brew --prefix nvm)/nvm.sh
