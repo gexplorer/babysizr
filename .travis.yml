@@ -18,6 +18,7 @@ install:
 before_script:
   - gulp tests
   - ionic state restore
-script: ionic build ios
+script:
+  - ionic build ios --target="iPhone-5"
 after_script:
   - find $HOME/build/gexplorer/babysizr/platforms/ios
